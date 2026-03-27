@@ -1,15 +1,15 @@
-"""Extracción Teradata: query band obligatorio y lectura SQL desde archivo."""
+from pathlib import Path
 
 import pandas as pd
 import teradatasql
 
 QUERY_BAND_SQL = (
-    "SET QUERY_BAND='ApplicationName=MonthlyTool_AI;UtilityData=Background;' "
+    "SET QUERY_BAND='ApplicationName=Monthly_Report;UtilityData=Background;' "
     "FOR SESSION;"
 )
 
 
-def run_query_from_file(host: str, user: str, password: str, sql_path: str) -> pd.DataFrame:
+ddef run_query_from_file(host: str, user: str, password: str, sql_path: str) -> pd.DataFrame:
     with open(sql_path, encoding="utf-8") as f:
         sql = f.read()
 
